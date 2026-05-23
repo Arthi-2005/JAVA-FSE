@@ -1,0 +1,11 @@
+*.class
+*.jar
+*.log
+*.txt
+node_modules/
+target/
+build/
+dist/
+.angular/cache/
+.DS_Store
+Thumbs.db
