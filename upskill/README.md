@@ -17,9 +17,9 @@
 
 | Module | Topics | Status |
 |--------|--------|--------|
-| [MODULE-1](./MODULE-1) | HTML5, CSS, JavaScript, Bootstrap | ✅ Completed |
-| [MODULE-2](./MODULE-2) | SQL | ✅ Completed |
-| [MODULE-3](./MODULE-3) | Java (Core, OOP, Collections, JDBC, Streams, Threads) | ✅ Completed |
+| [MODULE-1](./MODULE-1) • [📖 README](./MODULE-1/README.md) | HTML5, CSS, JavaScript, Bootstrap | ✅ Completed |
+| [MODULE-2](./MODULE-2) • [📖 README](./MODULE-2/README.md) | SQL | ✅ Completed |
+| [MODULE-3](./MODULE-3) • [📖 README](./MODULE-3/README.md) | Java (Core, OOP, Collections, JDBC, Streams, Threads) | ✅ Completed |
 
 ---
 
