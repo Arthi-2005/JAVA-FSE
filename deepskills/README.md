@@ -10,26 +10,26 @@
 | # | Module | Description | Status |
 |---|--------|-------------|--------|
 | | **Engineering Concepts** | | |
-| 1 | SOLID Principles & Design Patterns | SRP, OCP, LSP, ISP, DIP with individual class files; 9 GoF patterns (Creational/Structural/Behavioral) with separate demos & screenshots | ✅ Successful |
-| 2 | Data Structures & Algorithms | `DataStructures/` (LinkedList, Stack, Queue, BinaryTree) + `Algorithms/` (Linear/Binary Search, Bubble/Insertion/Quick/Merge/Heap Sort) — each with demo + screenshot | ✅ Successful |
+| 1 | SOLID Principles & Design Patterns | SRP, OCP, LSP, ISP, DIP with individual class files; 9 GoF patterns (Creational/Structural/Behavioral) with separate demos & screenshots | ✅ Completed |
+| 2 | Data Structures & Algorithms | `DataStructures/` (LinkedList, Stack, Queue, BinaryTree) + `Algorithms/` (Linear/Binary Search, Bubble/Insertion/Quick/Merge/Heap Sort) — each with demo + screenshot | ✅ Completed |
 | | **Programming Languages** | | |
-| 3 | PL/SQL Programming | `01-Basics` to `13-Triggers` — 13 individual SQL files with expected output screenshots | ✅ Successful |
-| 4 | TDD, JUnit, Mockito, Lombok, SLF4J | `Calculator` + `UserService` with 13 JUnit 5 tests, Mockito mocks, Lombok `@Data` `@Builder` `@Slf4j` | ✅ Successful |
+| 3 | PL/SQL Programming | `01-Basics` to `13-Triggers` — 13 individual SQL files with expected output screenshots | ✅ Completed |
+| 4 | TDD, JUnit, Mockito, Lombok, SLF4J | `Calculator` + `UserService` with 13 JUnit 5 tests, Mockito mocks, Lombok `@Data` `@Builder` `@Slf4j` | ✅ Completed |
 | | **Products & Frameworks** | |
-| 5 | Spring Core & Maven | `MessageService` interface + `EmailService`/`SmsService` implementations + DI via `@Autowired` + component scan | ✅ Successful |
-| 6 | Spring Data JPA & Hibernate | `Employee`/`Department` entities with `@OneToMany`/`@ManyToOne`, CRUD, pagination, custom queries | ✅ Successful |
-| 6b | SonarQube Code Quality | Docker setup guide, `mvn sonar:sonar` analysis, quality gate configuration | ✅ Successful |
-| 7 | Spring REST (Spring Boot 3) | `ProductController` with full CRUD, DTO, `@RestControllerAdvice` exception handling | ✅ Successful |
-| 8 | Microservices (Spring Cloud) | Eureka registry + User/Order services + API Gateway — 4 demos (ServiceRegistry, APIGateway, CircuitBreaker, ConfigServer) | ✅ Successful |
-| 9 | React SPA | Component-based UI, props, state, hooks, JSX explained with println demo | ✅ Successful |
-| 10 | Application Debugging | Breakpoints, stack trace analysis, log debugging (TRACE/DEBUG/INFO/WARN/ERROR) | ✅ Successful |
+| 5 | Spring Core & Maven | `MessageService` interface + `EmailService`/`SmsService` implementations + DI via `@Autowired` + component scan | 🚧 In Progress |
+| 6 | Spring Data JPA & Hibernate | `Employee`/`Department` entities with `@OneToMany`/`@ManyToOne`, CRUD, pagination, custom queries | 🚧 In Progress |
+| 6b | SonarQube Code Quality | Docker setup guide, `mvn sonar:sonar` analysis, quality gate configuration | ⏳ Not Started |
+| 7 | Spring REST (Spring Boot 3) | `ProductController` with full CRUD, DTO, `@RestControllerAdvice` exception handling | ⏳ Not Started |
+| 8 | Microservices (Spring Cloud) | Eureka registry + User/Order services + API Gateway — 4 demos (ServiceRegistry, APIGateway, CircuitBreaker, ConfigServer) | ⏳ Not Started |
+| 9 | React SPA | Component-based UI, props, state, hooks, JSX explained with println demo | ⏳ Not Started |
+| 10 | Application Debugging | Breakpoints, stack trace analysis, log debugging (TRACE/DEBUG/INFO/WARN/ERROR) | ⏳ Not Started |
 | | **Platforms & Enablers** | |
-| 11 | Git Version Control | Init, clone, add, commit, branch, merge, remote — all commands explained with demo | ✅ Successful |
-| 12 | DevOps & CI/CD | GitHub Actions YAML pipeline with build/test/deploy stages + Jenkinsfile demo | ✅ Successful |
-| 13 | Docker Containerization | Dockerfile, docker build/run, Docker Compose — full workflow in demo | ✅ Successful |
-| 14 | Agile Methodology | Scrum roles, ceremonies (planning/standup/review/retro), user stories | ✅ Successful |
-| 15 | Cloud Fundamentals (AWS) | EC2, S3, RDS, Lambda, VPC — service overview with deployment flow | ✅ Successful |
-| 16 | Gen AI & GitHub Copilot | LLM concepts, prompt engineering, RAG, fine-tuning, Copilot-assisted coding | ✅ Successful |
+| 11 | Git Version Control | Init, clone, add, commit, branch, merge, remote — all commands explained with demo | ⏳ Not Started |
+| 12 | DevOps & CI/CD | GitHub Actions YAML pipeline with build/test/deploy stages + Jenkinsfile demo | ⏳ Not Started |
+| 13 | Docker Containerization | Dockerfile, docker build/run, Docker Compose — full workflow in demo | ⏳ Not Started |
+| 14 | Agile Methodology | Scrum roles, ceremonies (planning/standup/review/retro), user stories | ⏳ Not Started |
+| 15 | Cloud Fundamentals (AWS) | EC2, S3, RDS, Lambda, VPC — service overview with deployment flow | ⏳ Not Started |
+| 16 | Gen AI & GitHub Copilot | LLM concepts, prompt engineering, RAG, fine-tuning, Copilot-assisted coding | ⏳ Not Started |
 
 ---
 
