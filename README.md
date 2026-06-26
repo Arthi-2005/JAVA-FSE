@@ -1,15 +1,6 @@
-<div align="center">
-  <h1>JAVA-FSE</h1>
-  <p><em>Java Full Stack Engineer (React) — Training Portfolio</em></p>
-  <p>
-    <img src="https://img.shields.io/badge/Java-ED8B00?logo=openjdk&logoColor=fff" alt="Java">
-    <img src="https://img.shields.io/badge/Spring-6DB33F?logo=spring&logoColor=fff" alt="Spring">
-    <img src="https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=000" alt="React">
-    <img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000" alt="JavaScript">
-    <img src="https://img.shields.io/badge/Oracle-F80000?logo=oracle&logoColor=fff" alt="Oracle">
-    <img src="https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=fff" alt="Docker">
-  </p>
-</div>
+# JAVA-FSE
+
+*Java Full Stack Engineer (React) — Training Portfolio*
 
 ---
 
@@ -17,8 +8,8 @@
 
 | Module | Topics Covered |
 |--------|----------------|
-| [`upskill/`](./upskill) | **Frontend** — HTML5, CSS3, JavaScript, Bootstrap · **Database** — SQL · **Core** — Java (OOP, Collections, Streams, JDBC, Threads) |
-| [`deepskill/`](./deepskill) | **Design** — SOLID Principles, GoF Design Patterns · **Algorithms** — DSA, Searching, Sorting · **Database** — PL/SQL · **Testing** — TDD, JUnit 5, Mockito, Lombok |
+| `upskill/` | Frontend — HTML5, CSS3, JavaScript, Bootstrap · Database — SQL · Core — Java (OOP, Collections, Streams, JDBC, Threads) |
+| `deepskill/` | Design — SOLID Principles, GoF Design Patterns · Algorithms — DSA, Searching, Sorting · Database — PL/SQL · Testing — TDD, JUnit 5, Mockito, Lombok |
 
 ---
 
