@@ -7,6 +7,7 @@
 | Folder | Description |
 |--------|-------------|
 | [`upskill/`](./upskill) | Upskill practice — Frontend (HTML/CSS/JS/Bootstrap), SQL, and Java exercises |
+| [`deepskill/`](./deepskill) | Deep skill — SOLID, Design Patterns, DSA, PL/SQL, TDD, JUnit, Mockito, Lombok |
 
 ## Tech Stack
 
