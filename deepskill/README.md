@@ -5,8 +5,9 @@ Hands-on practice modules covering core Java Full Stack engineering concepts.
 ## Progress Summary
 
 - ✅ **Completed:** Modules 1–4 (32 exercises)
-- 🚧 **In Progress:** Modules 5 & 6
-- ⏳ **Upcoming:** Modules 6b–17
+- 🚧 **In Progress:** Module 5
+- ✅ **Completed:** Modules 1–6, 6b–9
+- ⏳ **Upcoming:** Modules 10–17
 
 ## Module List
 
@@ -17,11 +18,11 @@ Hands-on practice modules covering core Java Full Stack engineering concepts.
 | 3 | PL/SQL | Hands-on | Blocks, Variables, IF/CASE, Loops, Exceptions, Cursors, Procedures, Functions, Packages, Triggers | ✅ Completed |
 | 4 | TDD / JUnit / Mockito / Lombok | Hands-on | JUnit, Mockito, Lombok @Data @Builder, TDD lifecycle, SLF4J | ✅ Completed |
 | 5 | Spring Core & Maven | Hands-on | IoC Container, DI (constructor/setter/field), AOP (before/after/around), Maven build lifecycle | 🚧 In Progress |
-| 6 | Spring Data JPA & Hibernate | Hands-on | JPA entities, Hibernate ORM, Spring Data repositories, Relationships, DTOs | 🚧 In Progress |
-| 6b | SonarQube | Concept | Code quality, Static analysis, Technical debt, Quality gates | ⏳ Upcoming |
-| 7 | Spring REST | Hands-on | REST APIs, DTO, Exception handling, JWT auth, Swagger docs | ⏳ Upcoming |
-| 8 | Microservices | Hands-on | Service registry, API gateway, Circuit breaker, Config server, Inter-service communication | ⏳ Upcoming |
-| 9 | React SPA | Hands-on | Components, State, Props, Hooks, Events, Routing, API fetch, Conditional rendering | ⏳ Upcoming |
+| 6 | Spring Data JPA & Hibernate | Hands-on | JPA entities, Hibernate ORM, Spring Data repositories, Relationships, DTOs | ✅ Completed |
+| 6b | SonarQube | Concept | Code quality, Static analysis, Technical debt, Quality gates | ✅ Completed |
+| 7 | Spring REST | Hands-on | REST APIs, DTO, Exception handling, JWT auth, Swagger docs | ✅ Completed |
+| 8 | Microservices | Hands-on | Service registry, API gateway, Circuit breaker, Config server, Inter-service communication | ✅ Completed |
+| 9 | React SPA | Hands-on | Components, State, Props, Hooks, Events, Routing, API fetch, Conditional rendering | ✅ Completed |
 | 10 | Debugging | Concept | Breakpoints, Watch variables, Step into/over, Call stack analysis | ⏳ Upcoming |
 | 11 | Git | Hands-on | Init, Clone, Commit, Branch, Merge, Rebase, Conflict resolution, .gitignore | ⏳ Upcoming |
 | 12 | DevOps & CI/CD | Concept | CI/CD pipelines, Build automation, Jenkins/GitHub Actions, Deployment strategies | ⏳ Upcoming |
