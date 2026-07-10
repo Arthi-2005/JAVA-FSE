@@ -1,0 +1,54 @@
+=== Exercise 1: Basic Breakpoints ===
+
+[Setup] Created a sample Java application for debugging
+File: Calculator.java with methods add(), subtract(), multiply(), divide()
+
+[Step 1] Setting breakpoints in VS Code...
+Command: Click left gutter on line numbers 12, 18, 24
+  --> Red dots appear on lines 12, 18, 24
+  --> Breakpoints set successfully
+
+[Step 2] Starting debug session...
+Command: Run > Start Debugging (F5)
+  --> Debugger starts, execution pauses at line 12 (add method)
+  --> Yellow highlight on current line
+
+[Step 3] Stepping through code...
+Command: Step Over (F10)
+  --> Execution moves to next line
+Command: Step Into (F11)
+  --> Debugger enters add() method
+Command: Step Return (Shift+F11)
+  --> Returns to caller
+
+[Step 4] Inspecting variables...
+Command: Hover over variable `a`
+  --> Shows: a = 5
+Command: Hover over variable `b`
+  --> Shows: b = 3
+Command: Watch panel
+  --> a + b = 8 (evaluated)
+  --> Result matches expected value
+
+[Step 5] Continuing execution...
+Command: Continue (F5)
+  --> Program continues to next breakpoint at line 18
+Command: Checking subtract() execution...
+  --> a = 10, b = 4, result = 6
+
+[Step 6] Removing breakpoints...
+Command: Click red dot on line 24
+  --> Breakpoint removed
+Command: Continuing to end...
+  --> Program completes execution
+
+[Verify] Debug Console output:
+Calculator Demo
+add(5, 3) = 8
+subtract(10, 4) = 6
+multiply(6, 7) = 42
+divide(15, 3) = 5
+
+  --> All calculations correct, breakpoints worked
+
+=== Exercise 1 Complete ===
