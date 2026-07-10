@@ -1,0 +1,50 @@
+=== Exercise 2: Conditional Breakpoints & Watches ===
+
+[Setup] Created a loop processing a list of users
+File: UserProcessor.java with for-loop iterating 20 users
+
+[Step 1] Setting conditional breakpoint...
+Command: Right-click breakpoint > Add Condition
+Condition: i == 10
+  --> Breakpoint will only trigger when i equals 10
+  --> Breakpoint icon shows a small equals sign
+
+[Step 2] Running debugger...
+Command: Start Debugging (F5)
+  --> Debugger SKIPS first 10 iterations
+  --> Pauses only at iteration i=10
+  --> Much more efficient than manual stepping
+
+[Step 3] Verifying condition hit...
+Command: Check 'i' variable
+  --> i = 10 (correctly hit condition)
+Command: Check 'currentUser' variable
+  --> currentUser = "User_11" (0-indexed, so i=10 is 11th user)
+
+[Step 4] Adding watch expressions...
+Command: Right-click in Watch panel > Add Expression
+Expression 1: i * 2
+  --> Evaluates to: 20
+Expression 2: users.size() - i
+  --> Evaluates to: 10 (remaining users to process)
+Expression 3: currentUser.length()
+  --> Evaluates to: 7
+
+[Step 5] Setting hit count breakpoint...
+Command: Right-click breakpoint > Hit Count: 5
+  --> Breakpoint triggers only on 5th hit
+  --> Useful for intermittent bugs
+
+[Step 6] Testing hit count...
+Command: Continue (F5) x4 times
+  --> Each continue skips until hit count resets
+Command: At i=15, hit count triggers
+  --> Breakpoint hit at iteration 15
+
+[Verify] Watches showed correct values throughout:
+  i values: 0, 1, 2, ... 19
+  i * 2: 0, 2, 4, ... 38
+  users.size() - i: 20, 19, ... 1
+  --> Conditional and hit-count breakpoints worked as expected
+
+=== Exercise 2 Complete ===
