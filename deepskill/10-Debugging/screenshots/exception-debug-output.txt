@@ -1,0 +1,53 @@
+=== Exercise 3: Debugging Exceptions ===
+
+[Setup] Created an application that processes payments
+File: PaymentProcessor.java with intentional division by zero and null pointer
+
+[Step 1] Enabling exception breakpoints...
+Command: Debug > Breakpoints > Caught Exceptions (check)
+Command: Debug > Breakpoints > Uncaught Exceptions (check)
+  --> Debugger will pause on ANY exception
+
+[Step 2] Running and triggering ArithmeticException...
+Command: Start Debugging (F5)
+  --> Execution pauses at line 34
+  --> "Exception occurred: java.lang.ArithmeticException: / by zero"
+
+[Step 3] Analyzing the stack trace...
+Command: View Call Stack panel
+  PaymentProcessor.calculateFee() line 34
+  PaymentProcessor.processPayment() line 22
+  PaymentProcessor.main() line 8
+  --> Error originates in calculateFee() at line 34
+
+[Step 4] Inspecting variables at exception point...
+Command: Hover over variables
+  --> amount = 100
+  --> feePercent = 0
+  --> The issue: feePercent is 0, causing division by zero
+  --> Fix needed: validate feePercent before division
+
+[Step 5] Fixing the issue and re-running...
+Command: Added null check and zero validation
+  --> if (feePercent == 0) throw new IllegalArgumentException("Fee cannot be zero")
+
+[Step 6] Testing NullPointerException handling...
+Command: Continue debugging with invalid input...
+  --> Debugger catches NullPointerException at line 57
+  --> Stack trace shows customer object is null
+  --> customer.getName() called on null reference
+
+[Step 7] Exception breakpoint customization...
+Command: Right-click breakpoint > Exception Condition
+  --> Added custom filter: only break on ArithmeticException
+Command: Continued execution...
+  --> Only ArithmeticException triggers breakpoint now
+  --> NullPointerException is caught by try-catch and logged
+
+[Verify] Debug Console output:
+Processing payment for customer: John
+Error: Cannot calculate fee - fee percent is 0
+Error processing refund: null customer reference
+  --> Exception breakpoints correctly caught and diagnosed both errors
+
+=== Exercise 3 Complete ===
