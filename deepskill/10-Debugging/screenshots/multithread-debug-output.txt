@@ -1,0 +1,62 @@
+=== Exercise 4: Multi-threaded Debugging ===
+
+[Setup] Created a multi-threaded web server simulator
+File: ThreadedServer.java with 3 worker threads processing requests
+
+[Step 1] Setting thread-aware breakpoints...
+Command: Set breakpoint at line 28 (request handling)
+  --> Breakpoint set on request processing logic
+  --> In multi-thread debug, ALL threads will pause here
+
+[Step 2] Starting debug with all threads...
+Command: Start Debugging (F5)
+  --> Three threads created: Worker-1, Worker-2, Worker-3
+  --> Worker-1 hits breakpoint first
+
+[Step 3] Using Thread view...
+Command: View > Debug > Threads
+  --> Shows all threads with their states:
+  --> Worker-1: RUNNING (at breakpoint)
+  --> Worker-2: RUNNING (processing)
+  --> Worker-3: WAITING (idle)
+
+[Step 4] Freezing threads...
+Command: Right-click Worker-2 > Freeze Thread
+  --> Worker-2 is frozen and won't execute
+Command: Right-click Worker-3 > Freeze Thread
+  --> Only Worker-1 is active now
+
+[Step 5] Single-thread stepping...
+Command: Step Over (F10) in Worker-1
+  --> Worker-1 processes one request
+Command: Check request count variable
+  --> processedCount = 1
+Command: Continue (F5)
+  --> Worker-1 processes remaining requests
+
+[Step 6] Thawing threads...
+Command: Right-click Worker-2 > Thaw Thread
+Command: Right-click Worker-3 > Thaw Thread
+  --> All threads resume
+
+[Step 7] Observing race condition...
+Command: Set breakpoint at shared resource (line 45)
+  --> Both Worker-1 and Worker-2 hit breakpoint simultaneously
+  --> Shared counter shows inconsistent state
+  --> Demonstrates need for synchronization
+
+[Step 8] Applying fix with synchronized block...
+Command: Added synchronized(lock) around shared resource
+  --> Race condition resolved
+  --> Threads now properly coordinate access
+
+[Verify] Final execution output:
+Worker-1 processed request #1
+Worker-2 processed request #2
+Worker-3 processed request #3
+Worker-1 processed request #4
+Worker-2 processed request #5
+Total processed: 5
+  --> Thread debugging successful, race condition identified and fixed
+
+=== Exercise 4 Complete ===
