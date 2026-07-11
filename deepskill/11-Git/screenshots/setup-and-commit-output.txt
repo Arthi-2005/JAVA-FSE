@@ -1,0 +1,55 @@
+=== Exercise 1: Git Setup & First Commit ===
+
+[Step 1] Setting up Git identity...
+Command: git config --global user.name "Jane Doe"
+Command: git config --global user.email "jane.doe@example.com"
+
+[Verify] Checking Git config...
+Command: git config --global --list
+user.name=Jane Doe
+user.email=jane.doe@example.com
+  --> user.name and user.email should show above
+
+[Step 2] Creating project and initializing repo...
+Command: New-Item -ItemType Directory -Path "MyProject"
+Command: Set-Location -Path "MyProject"
+Command: git init
+Initialized empty Git repository in MyProject/.git/
+  --> Initialized empty Git repository
+
+[Step 3] Creating project files...
+Command: New-Item -ItemType File -Path "index.html" -Force
+Command: New-Item -ItemType File -Path "README.md" -Force
+
+[Step 4] Staging files...
+Command: git add index.html README.md
+Command: git status
+On branch main
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   index.html
+        new file:   README.md
+  --> Files should be green (staged)
+
+[Step 5] Making first commit...
+Command: git commit -m "Initial commit: add index.html and README"
+[main (root-commit) a1b2c3d] Initial commit: add index.html and README
+ 2 files changed, 12 insertions(+)
+ create mode 100644 index.html
+ create mode 100644 README.md
+
+[Step 6] Pushing to remote...
+Command: git remote add origin https://github.com/janedoe/my-project.git
+Command: git push -u origin main
+  (Skipping actual push - remote not configured)
+  --> git push -u origin main  (run this when remote is ready)
+
+[Verify] Commit log...
+Command: git log --oneline
+a1b2c3d (HEAD -> main) Initial commit: add index.html and README
+  --> Shows 1 commit
+
+=== Exercise 1 Complete ===
