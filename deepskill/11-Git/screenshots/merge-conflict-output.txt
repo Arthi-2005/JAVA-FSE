@@ -1,0 +1,69 @@
+=== Exercise 4: Merge Conflict ===
+
+[Setup] Creating fresh project...
+Initialized empty Git repository in ConflictDemo/.git/
+[main (root-commit) e5f6a7b] Initial team.txt with Alice
+ 1 file changed, 3 insertions(+)
+ create mode 100644 team.txt
+
+[Step 1] Creating branch feature/add-members...
+Command: git checkout -b feature/add-members
+Switched to a new branch 'feature/add-members'
+[feature/add-members f6a7b8c] Add Bob to team
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+[Step 2] Modifying team.txt on main...
+Command: git checkout main
+Switched to branch 'main'
+[main a7b8c9d] Add Charlie to team
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+[Step 3] Merging feature/add-members (CONFLICT EXPECTED)...
+Command: git merge feature/add-members
+Auto-merging team.txt
+CONFLICT (content): Merge conflict in team.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+  --> CONFLICT! Git can't auto-merge team.txt
+  --> Both branches changed the same lines
+
+[Step 4] Viewing conflicted file...
+Command: Get-Content team.txt
+Team Members:
+- Alice
+<<<<<<< HEAD
+- Charlie (added on main branch)
+=======
+- Bob (added by feature branch)
+>>>>>>> feature/add-members
+  --> Shows <<<<<<<, =======, >>>>>>> markers
+
+[Step 5] Resolving conflict...
+  --> Edit team.txt to keep both additions
+Command: git add team.txt
+Command: git status
+On branch main
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+  --> All conflicts resolved, ready to commit
+
+[Step 6] Committing merge resolution...
+Command: git commit -m "Merge feature/add-members: resolve conflict in team.txt"
+[main b8c9d0e] Merge feature/add-members: resolve conflict in team.txt
+
+[Verify] Final state...
+Command: git log --oneline --graph
+*   b8c9d0e (HEAD -> main) Merge feature/add-members: resolve conflict in team.txt
+|\
+| * f6a7b8c (feature/add-members) Add Bob to team
+* | a7b8c9d Add Charlie to team
+|/
+* e5f6a7b Initial team.txt with Alice
+Command: Get-Content team.txt
+Team Members:
+- Alice
+- Bob (added by feature branch)
+- Charlie (added on main branch)
+  --> Conflict resolved, both Bob and Charlie present
+
+=== Exercise 4 Complete ===
