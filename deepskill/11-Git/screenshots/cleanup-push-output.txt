@@ -1,0 +1,60 @@
+=== Exercise 5: Clean Up & Push ===
+
+[Setup] Creating a project with some history...
+Initialized empty Git repository in CleanupDemo/.git/
+[main (root-commit) c9d0e1f] Initial commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+Switched to a new branch 'old-feature'
+[old-feature d0e1f2a] Add stale.txt on old-feature
+ 1 file changed, 1 insertion(+)
+ create mode 100644 stale.txt
+Switched to branch 'main'
+
+[Step 1] Checking repo state...
+Command: git status
+On branch main
+nothing to commit, working tree clean
+  --> Should show 'nothing to commit, working tree clean'
+
+[Step 2] Listing all branches...
+Command: git branch -a
+  main
+  old-feature
+  --> Shows all local branches. * marks the current branch.
+
+[Step 3] Setting up remote...
+Command: git remote add origin https://github.com/janedoe/cleanup-demo.git
+Command: git remote -v
+origin   https://github.com/janedoe/cleanup-demo.git (fetch)
+origin   https://github.com/janedoe/cleanup-demo.git (push)
+  --> Shows fetch/push URLs for origin
+
+[Step 4] Pulling latest from remote...
+Command: git pull origin main --allow-unrelated-histories
+  (Skipping - no remote repo to pull from)
+  --> In practice: git pull origin main
+
+[Step 5] Pushing to remote...
+Command: git push -u origin main
+  (Skipping - no remote repo to push to)
+  --> In practice: git push -u origin main
+
+[Step 6] Cleaning up branches...
+Command: git branch -d old-feature
+Deleted branch old-feature (was d0e1f2a).
+Command: git branch
+* main
+  --> Only main branch remains, clean state
+
+[Step 7] Final verification...
+Command: git status
+On branch main
+nothing to commit, working tree clean
+Command: git log --oneline
+c9d0e1f (HEAD -> main) Initial commit
+  --> Clean working tree, one commit, one branch
+
+=== Exercise 5 Complete ===
+
+All exercises finished! Repo is clean and ready to push.
