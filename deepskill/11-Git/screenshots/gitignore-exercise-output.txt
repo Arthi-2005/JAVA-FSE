@@ -1,0 +1,48 @@
+=== Exercise 2: Git Ignore ===
+
+[Step 1] Creating .log files and log folder...
+Command: New-Item -ItemType File -Path "debug.log" -Force
+Command: New-Item -ItemType File -Path "error.log" -Force
+Command: New-Item -ItemType Directory -Path "logs" -Force
+Command: New-Item -ItemType File -Path "logs\server.log" -Force
+Command: New-Item -ItemType File -Path "logs\access.log" -Force
+
+[Step 2] Creating .gitignore...
+Command: New-Item -ItemType File -Path ".gitignore" -Force
+
+[Step 3] Checking git status...
+Command: git status
+On branch main
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+  --> .log files and logs/ folder should NOT appear
+  --> Only .gitignore should be untracked
+
+[Step 4] Staging .gitignore...
+Command: git add .gitignore
+Command: git status
+On branch main
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   .gitignore
+  --> .gitignore staged, log files still ignored
+
+[Step 5] Committing .gitignore...
+Command: git commit -m "Add .gitignore to exclude log files"
+[main b2c3d4e] Add .gitignore to exclude log files
+ 1 file changed, 7 insertions(+)
+ create mode 100644 .gitignore
+
+[Step 6] Demo: Force-adding ignored file...
+Command: git add -f debug.log
+  --> Force-add works but is NOT recommended for logs
+Command: git reset debug.log
+  --> Unstaged debug.log
+
+[Verify] Commit log...
+Command: git log --oneline
+b2c3d4e (HEAD -> main) Add .gitignore to exclude log files
+a1b2c3d Initial commit: add index.html and README
+
+=== Exercise 2 Complete ===
