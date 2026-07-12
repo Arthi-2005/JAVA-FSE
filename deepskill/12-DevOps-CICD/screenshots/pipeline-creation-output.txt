@@ -1,0 +1,105 @@
+=== Exercise 2: Pipeline Creation ===
+
+[Setup] Created a Java project with Maven for pipeline demo
+Project: java-web-app with pom.xml, src/main/java, src/test/java
+
+[Step 1] Creating declarative pipeline...
+Command: Edit Jenkinsfile in project root:
+pipeline {
+    agent any
+    tools {
+        maven 'Maven-3.9.0'
+        jdk 'JDK-17'
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main',
+                    url: 'https://github.com/student/java-web-app.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'mvn clean compile'
+            }
+            post {
+                success {
+                    echo 'Build completed successfully!'
+                }
+                failure {
+                    echo 'Build failed!'
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+        stage('Package') {
+            steps {
+                sh 'mvn package'
+            }
+        }
+    }
+}
+
+[Step 2] Running pipeline for the first time...
+Command: Jenkins > java-web-app > Build Now
+  --> Build #1 started
+  --> Checkout: Cloning repository... done
+  --> Build: [INFO] BUILD SUCCESS
+  --> Test: Tests run: 12, Failures: 0, Errors: 0
+  --> Package: [INFO] Building jar: target/java-web-app-1.0.jar
+
+[Step 3] Adding environment variables...
+Command: Added environment section:
+environment {
+    APP_VERSION = '1.0.0'
+    BUILD_TIMESTAMP = timestamp()
+}
+
+[Step 4] Adding post-build actions...
+Command: Added post section:
+post {
+    always {
+        archiveArtifacts artifacts: 'target/*.jar'
+        junit 'target/surefire-reports/*.xml'
+    }
+    success {
+        echo 'Pipeline completed successfully!'
+    }
+    failure {
+        echo 'Pipeline failed. Check logs for details.'
+    }
+}
+
+[Step 5] Re-running with changes...
+Command: Build Now (Build #2)
+  --> Stage view shows all stages green
+  --> Artifacts archived: java-web-app-1.0.0.jar
+  --> JUnit reports: 12 tests passed
+  --> Build #2: SUCCESS
+
+[Step 6] Triggering build failure...
+Command: Intentionally added compile error
+Command: Build Now (Build #3)
+  --> Stage 'Build' fails (red)
+  --> Console shows compilation error
+  --> Post condition triggers failure message
+  --> Build #3: FAILURE
+
+[Step 7] Fixing the error and rebuilding...
+Command: Reverted the compile error
+Command: Build Now (Build #4)
+  --> All stages green again
+  --> Build #4: SUCCESS
+
+[Verify] Pipeline history:
+  Build #1: SUCCESS (initial setup)
+  Build #2: SUCCESS (with artifacts)
+  Build #3: FAILURE (intentional error)
+  Build #4: SUCCESS (recovered)
+  --> Pipeline creation and management working correctly
+
+=== Exercise 2 Complete ===
