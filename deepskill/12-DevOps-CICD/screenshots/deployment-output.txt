@@ -1,0 +1,93 @@
+=== Exercise 4: Deployment Pipeline ===
+
+[Setup] Created deployment pipeline for staging and production
+Environment: Staging (localhost:8080), Production (server:80)
+
+[Step 1] Adding deployment stages...
+Command: Updated Jenkinsfile with deployment:
+stage('Deploy to Staging') {
+    steps {
+        sh 'deploy-scripts/deploy-staging.sh'
+    }
+    post {
+        success {
+            input message: 'Approve production deployment?', ok: 'Deploy'
+        }
+    }
+}
+stage('Deploy to Production') {
+    steps {
+        sh 'deploy-scripts/deploy-production.sh'
+    }
+}
+
+[Step 2] Creating deployment scripts...
+Command: Created deploy-staging.sh:
+#!/bin/bash
+echo "Stopping existing application..."
+echo "Copying new artifact: target/*.jar"
+echo "Starting application on port 8080..."
+echo "Health check: http://staging:8080/actuator/health"
+
+Command: Created deploy-production.sh:
+#!/bin/bash
+echo "Backing up current production version..."
+echo "Rolling update with zero downtime..."
+echo "Verifying deployment across 3 instances..."
+echo "Smoke tests running..."
+
+[Step 3] Deploying to staging...
+Command: Build Now (Build #8)
+  --> All previous stages pass
+  --> Deploy to Staging: SUCCESS
+  --> Manual approval gate: waiting for input
+Command: Clicked "Deploy" to approve
+  --> Deploy to Production starts
+
+[Step 4] Verifying staging deployment...
+Command: curl http://localhost:8080/actuator/health
+  --> {"status":"UP"}
+Command: curl http://localhost:8080/api/version
+  --> {"version":"1.0.0","build":"8"}
+
+[Step 5] Production deployment with rollback...
+Command: Added rollback mechanism:
+stage('Rollback on Failure') {
+    when {
+        expression { currentBuild.result == 'FAILURE' }
+    }
+    steps {
+        sh 'deploy-scripts/rollback.sh'
+    }
+}
+
+[Step 6] Testing rollback...
+Command: Intentionally broke production script
+Command: Build Now (Build #9)
+  --> Staging deployment succeeds
+  --> Production deployment FAILS
+  --> Rollback stage triggered
+  --> Previous version restored successfully
+
+[Step 7] Adding environment-specific configs...
+Command: Created config files:
+staging.properties: DB_URL=jdbc:h2:mem:staging
+production.properties: DB_URL=jdbc:postgresql://prod-db:5432/app
+
+[Step 8] Final successful deployment...
+Command: Fixed production script, re-ran
+Command: Build Now (Build #10)
+  --> All stages green
+  --> Staging: http://staging.app.com
+  --> Production: http://production.app.com
+  --> Both return health check: UP
+  --> Deployment pipeline complete with automation and rollback
+
+[Verify] Full CD pipeline working:
+  --> Automated build and test
+  --> Staging deployment with approval gate
+  --> Production deployment with zero-downtime
+  --> Rollback on failure
+  --> Environment-specific configurations
+
+=== Exercise 4 Complete ===
