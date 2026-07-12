@@ -1,0 +1,79 @@
+=== Exercise 1: Jenkins Setup & Configuration ===
+
+[Step 1] Installing Jenkins...
+Command: Download Jenkins WAR file from official site
+Command: java -jar jenkins.war --httpPort=8080
+  --> Jenkins starting on http://localhost:8080
+  --> Initial admin password shown in console
+
+[Step 2] Unlocking Jenkins...
+Command: Browse to http://localhost:8080
+  --> Unlock Jenkins page displayed
+Command: C:\ProgramData\Jenkins\.jenkins\secrets\initialAdminPassword
+  --> Copied initial admin password
+  --> Pasted into unlock field
+  --> Jenkins unlocked successfully
+
+[Step 3] Installing recommended plugins...
+Command: Select "Install suggested plugins"
+  --> Installing: Git, Pipeline, Maven, Blue Ocean, Slack, Email Extension
+  --> 12/12 plugins installed successfully
+  --> Creating admin user...
+
+[Step 4] Configuring global tools...
+Command: Manage Jenkins > Global Tool Configuration
+  --> JDK: Added JDK 17 path (C:\Program Files\Java\jdk-17)
+  --> Git: Added git.exe path (C:\Program Files\Git\bin\git.exe)
+  --> Maven: Added Maven 3.9.0 path (C:\tools\apache-maven-3.9.0)
+  --> All tools configured and saved
+
+[Step 5] Creating first Jenkins job...
+Command: New Item > Enter name "Hello-World-Pipeline"
+Command: Select "Pipeline" > OK
+  --> Pipeline configuration page opens
+
+[Step 6] Configuring pipeline from SCM...
+Command: In Pipeline section:
+  --> Definition: Pipeline script from SCM
+  --> SCM: Git
+  --> Repository URL: https://github.com/student/java-sample.git
+  --> Branch: */main
+  --> Script Path: Jenkinsfile
+
+[Step 7] Creating Jenkinsfile in project...
+Command: Created Jenkinsfile in project root:
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building application...'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing application...'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying application...'
+            }
+        }
+    }
+}
+
+[Step 8] Running first build...
+Command: Click "Build Now"
+  --> Build #1 started
+  --> Stage view shows: Build > Test > Deploy (all green)
+  --> Console output shows all echo messages
+  --> Build SUCCESS
+
+[Verify] Jenkins dashboard shows:
+  --> Job: Hello-World-Pipeline
+  --> Last build: #1 (SUCCESS)
+  --> Weather: Sunny
+  --> Jenkins setup complete and operational
+
+=== Exercise 1 Complete ===
