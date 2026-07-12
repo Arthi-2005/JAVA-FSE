@@ -6,6 +6,6 @@ node_modules/
 target/
 build/
 dist/
-.angular/cache/
+.angular/
 .DS_Store
 Thumbs.db
