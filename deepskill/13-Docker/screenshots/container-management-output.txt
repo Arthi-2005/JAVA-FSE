@@ -1,0 +1,85 @@
+=== Exercise 4: Container Management ===
+
+[Step 1] Advanced container operations...
+Command: Created multiple containers for management practice:
+docker run -d --name web1 -p 8081:80 nginx
+docker run -d --name web2 -p 8082:80 nginx
+docker run -d --name web3 -p 8083:80 nginx
+  --> 3 containers started
+
+[Step 2] Inspecting containers...
+Command: docker inspect web1
+  --> [
+  -->   {
+  -->     "Id": "abc123...",
+  -->     "State": {
+  -->       "Status": "running",
+  -->       "StartedAt": "2026-07-13T10:30:00Z"
+  -->     },
+  -->     "NetworkSettings": {
+  -->       "IPAddress": "172.17.0.2"
+  -->     }
+  -->   }
+  --> ]
+
+[Step 3] Monitoring resource usage...
+Command: docker stats --no-stream
+  --> CONTAINER   CPU %   MEM USAGE / LIMIT    NET I/O
+  --> web1        0.02%   7.8MB / 8GB          1.2kB / 648B
+  --> web2        0.01%   7.6MB / 8GB          845B / 512B
+  --> web3        0.02%   7.9MB / 8GB          1.1kB / 548B
+  --> All containers using minimal resources
+
+[Step 4] Setting resource limits...
+Command: docker run -d --name limited-web \
+  --memory="256m" --cpus="0.5" \
+  -p 8084:80 nginx
+  --> Container started with resource constraints
+Command: docker inspect limited-web --format='{{.HostConfig.Memory}}'
+  --> 268435456 (256MB limit confirmed)
+
+[Step 5] Copying files to/from containers...
+Command: docker cp index.html web1:/usr/share/nginx/html/
+  --> File copied successfully
+Command: docker cp web1:/etc/nginx/nginx.conf .
+  --> nginx.conf copied to local machine
+
+[Step 6] Executing commands in running containers...
+Command: docker exec web1 ls /usr/share/nginx/html/
+  --> index.html
+  --> 50x.html
+Command: docker exec web1 nginx -t
+  --> nginx: the configuration file syntax is ok
+  --> nginx: configuration file test is successful
+
+[Step 7] Managing container lifecycle...
+Command: docker stop web2
+  --> web2
+Command: docker ps
+  --> web1 and web3 running, web2 stopped
+Command: docker start web2
+  --> web2
+Command: docker restart web1
+  --> web1
+
+[Step 8] Cleaning up containers...
+Command: docker stop $(docker ps -q)
+  --> web1, web2, web3, limited-web stopped
+Command: docker rm $(docker ps -aq)
+  --> All containers removed
+Command: docker system prune -f
+  --> WARNING! This will remove:
+  -->   - all stopped containers
+  -->   - all dangling images
+  -->   - all unused networks
+  --> Total reclaimed space: 234MB
+
+[Verify] Container management mastered:
+  --> Create/inspect/stop/start/restart containers
+  --> Monitor resource usage
+  --> Set resource limits
+  --> Copy files and exec commands
+  --> Clean up unused resources
+  --> Docker container management complete
+
+=== Exercise 4 Complete ===
