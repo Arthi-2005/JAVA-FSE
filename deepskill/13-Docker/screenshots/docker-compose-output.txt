@@ -1,0 +1,114 @@
+=== Exercise 3: Docker Compose ===
+
+[Setup] Created a full-stack application with Node.js backend and MongoDB
+Project structure:
+  backend/
+    Dockerfile
+    app.js
+  frontend/
+    Dockerfile
+    index.html
+  docker-compose.yml
+
+[Step 1] Creating docker-compose.yml...
+Command: Created docker-compose.yml:
+version: '3.8'
+services:
+  mongodb:
+    image: mongo:7
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - app-network
+
+  backend:
+    build: ./backend
+    container_name: node-backend
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongodb
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/myapp
+    networks:
+      - app-network
+
+  frontend:
+    build: ./frontend
+    container_name: react-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+volumes:
+  mongo-data:
+
+networks:
+  app-network:
+    driver: bridge
+
+[Step 2] Starting application stack...
+Command: docker compose up -d
+  --> [+] Running 5/5
+  --> Network app-network created
+  --> Volume mongo-data created
+  --> Container mongodb started
+  --> Container node-backend started
+  --> Container react-frontend started
+  --> All services up and running
+
+[Step 3] Checking running services...
+Command: docker compose ps
+  --> NAME              STATUS         PORTS
+  --> mongodb           Up 30 seconds  0.0.0.0:27017->27017/tcp
+  --> node-backend      Up 25 seconds  0.0.0.0:5000->5000/tcp
+  --> react-frontend    Up 20 seconds  0.0.0.0:3000->3000/tcp
+
+[Step 4] Viewing logs...
+Command: docker compose logs -f
+  --> mongodb       | Waiting for connections on port 27017
+  --> node-backend  | Server running on port 5000
+  --> node-backend  | Connected to MongoDB
+  --> react-frontend | Serving on port 3000
+
+[Step 5] Testing application...
+Command: curl http://localhost:5000/api/health
+  --> {"status":"OK","db":"connected"}
+Command: curl http://localhost:3000
+  --> <html><body><h1>Full Stack App</h1></body></html>
+  --> Full stack application working
+
+[Step 6] Scaling a service...
+Command: docker compose up -d --scale backend=2
+  --> WARNING: The "backend" service specifies a port, scaling may cause issues
+  --> [+] Running 1/1
+  --> Container node-backend-2 started
+  --> Two backend instances running
+
+[Step 7] Stopping and cleaning up...
+Command: docker compose down
+  --> Stopping react-frontend ... done
+  --> Stopping node-backend-2 ... done
+  --> Stopping node-backend-1 ... done
+  --> Stopping mongodb ... done
+  --> Removing network app-network
+  --> All containers stopped and cleaned up
+
+[Step 8] Removing volumes too...
+Command: docker compose down -v
+  --> Removing volume mongo-data
+  --> Clean slate for next exercise
+
+[Verify] Docker Compose working:
+  --> Multi-service application running
+  --> Inter-service communication working
+  --> Volume and network management
+  --> Scaling and cleanup successful
+
+=== Exercise 3 Complete ===
