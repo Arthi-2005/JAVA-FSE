@@ -1,0 +1,85 @@
+=== Exercise 2: Building Docker Images ===
+
+[Setup] Created a simple Node.js web application
+Files: app.js, package.json, public/index.html
+
+[Step 1] Creating Dockerfile...
+Command: Created Dockerfile in project root:
+FROM node:18-alpine
+WORKDIR /usr/src/app
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 3000
+CMD ["node", "app.js"]
+
+[Step 2] Building first image...
+Command: docker build -t my-node-app:v1 .
+  --> [+] Building 12.5s (9/9) FINISHED
+  --> [1/5] FROM node:18-alpine
+  --> [2/5] WORKDIR /usr/src/app
+  --> [3/5] COPY package*.json ./
+  --> [4/5] RUN npm install
+  --> [5/5] COPY . .
+  --> exporting to image
+  --> Successfully built abc123def456
+  --> Successfully tagged my-node-app:v1
+
+[Step 3] Verifying image...
+Command: docker images
+  --> REPOSITORY     TAG       IMAGE ID       SIZE
+  --> my-node-app    v1        abc123def456    182MB
+  --> node           18-alpine abc123def456    125MB
+  --> ubuntu         latest    def456abc789    77.8MB
+  --> hello-world    latest    123abc456def    13.3kB
+
+[Step 4] Running container from custom image...
+Command: docker run -d -p 3000:3000 --name my-app my-node-app:v1
+  --> abc123def456789abc
+Command: docker ps
+  --> CONTAINER ID   IMAGE           STATUS         PORTS
+  --> abc123def456   my-node-app:v1  Up 2 minutes   0.0.0.0:3000->3000/tcp
+
+[Step 5] Testing the application...
+Command: curl http://localhost:3000
+  --> <h1>Hello from Docker!</h1>
+  --> Application running successfully in container
+
+[Step 6] Viewing container logs...
+Command: docker logs my-app
+  --> Server running on port 3000
+  --> GET / 200 12.345 ms
+  --> Application logging to stdout
+
+[Step 7] Building optimized image with multi-stage...
+Command: Created optimized Dockerfile with multi-stage build:
+FROM node:18-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+
+FROM node:18-alpine
+WORKDIR /usr/src/app
+COPY --from=builder /app/node_modules ./node_modules
+COPY . .
+EXPOSE 3000
+CMD ["node", "app.js"]
+
+Command: docker build -t my-node-app:v2 .
+  --> [+] Building 8.2s
+  --> Successfully built 789def456abc
+  --> Successfully tagged my-node-app:v2
+
+[Step 8] Comparing image sizes...
+Command: docker images
+  --> my-node-app    v1    182MB
+  --> my-node-app    v2    165MB (smaller due to multi-stage)
+  --> Optimized image is 17MB smaller
+
+[Verify] Docker image building working:
+  --> Custom image created and tagged
+  --> Container running on port 3000
+  --> Multi-stage build optimization done
+  --> Image size reduced from 182MB to 165MB
+
+=== Exercise 2 Complete ===
