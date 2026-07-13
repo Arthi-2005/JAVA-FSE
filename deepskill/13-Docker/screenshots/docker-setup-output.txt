@@ -1,0 +1,77 @@
+=== Exercise 1: Docker Setup & Basics ===
+
+[Step 1] Installing Docker Desktop...
+Command: Download Docker Desktop from docker.com
+Command: Run installer and follow setup wizard
+Command: Restart computer when prompted
+Command: Open Docker Desktop
+  --> Docker Engine starting...
+  --> Docker Desktop running with WSL2 backend
+
+[Step 2] Verifying Docker installation...
+Command: docker --version
+  --> Docker version 26.1.0, build 1234abc
+Command: docker info
+  --> Client: 26.1.0
+  --> Server: 26.1.0
+  --> Containers: 0
+  --> Images: 0
+  --> Server Version: 26.1.0
+  --> Storage Driver: overlay2
+
+[Step 3] Running first container...
+Command: docker run hello-world
+  --> Unable to find image 'hello-world:latest' locally
+  --> latest: Pulling from library/hello-world
+  --> Digest: sha256:abc123...
+  --> Status: Downloaded newer image for hello-world:latest
+  --> 
+  --> Hello from Docker!
+  --> This message shows that your installation appears to be working correctly.
+
+[Step 4] Running interactive container...
+Command: docker run -it ubuntu bash
+  --> Unable to find image 'ubuntu:latest' locally
+  --> Pulling from library/ubuntu
+  --> Status: Downloaded newer image for ubuntu:latest
+  --> root@abc123:/# 
+
+[Step 5] Exploring inside container...
+Command: root@abc123:/# cat /etc/os-release
+  --> PRETTY_NAME="Ubuntu 24.04 LTS"
+  --> NAME="Ubuntu"
+  --> VERSION_ID="24.04"
+Command: root@abc123:/# echo "Hello from Docker container!"
+  --> Hello from Docker container!
+Command: root@abc123:/# exit
+  --> Exited container
+
+[Step 6] Listing containers...
+Command: docker ps -a
+  --> CONTAINER ID   IMAGE         COMMAND    STATUS
+  --> abc123         ubuntu        "bash"     Exited (0)
+  --> def456         hello-world   "/hello"   Exited (0)
+  --> Shows all containers including stopped ones
+
+[Step 7] Listing Docker images...
+Command: docker images
+  --> REPOSITORY     TAG       IMAGE ID       SIZE
+  --> hello-world    latest    abc123def456    13.3kB
+  --> ubuntu         latest    def456abc789    77.8MB
+  --> Images downloaded and cached locally
+
+[Step 8] Removing containers...
+Command: docker rm abc123
+  --> abc123
+Command: docker ps -a
+  --> Only hello-world container remains
+  --> Clean up successful
+
+[Verify] Docker is working:
+  --> docker --version: 26.1.0
+  --> Can pull images from Docker Hub
+  --> Can run and interact with containers
+  --> Can list and remove containers
+  --> Docker setup complete
+
+=== Exercise 1 Complete ===
