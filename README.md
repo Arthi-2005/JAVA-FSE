@@ -9,7 +9,7 @@
 | Module | Topics Covered |
 |--------|----------------|
 | `upskill/` | Frontend — HTML5, CSS3, JavaScript, Bootstrap · Database — SQL · Core — Java (OOP, Collections, Streams, JDBC, Threads) |
-| `deepskill/` | Design — SOLID Principles, GoF Design Patterns · Algorithms — DSA, Searching, Sorting · Database — PL/SQL · Testing — TDD, JUnit 5, Mockito, Lombok |
+| `deepskill/` | Design — SOLID Principles, GoF Design Patterns · Algorithms — DSA, Searching, Sorting · Database — PL/SQL · Testing — TDD, JUnit 5, Mockito, Lombok · Debugging — Breakpoints, Watches, Thread Debugging · Git — Branching, Merging, Conflict Resolution · DevOps — Jenkins, CI/CD Pipelines · Docker — Images, Compose, Containers |
 
 ---
 
