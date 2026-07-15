@@ -1,0 +1,6 @@
+FROM alpine:latest
+RUN apk add --no-cache nodejs npm
+COPY api-server.js /app/server.js
+WORKDIR /app
+EXPOSE 3000
+CMD ["node", "server.js"]
