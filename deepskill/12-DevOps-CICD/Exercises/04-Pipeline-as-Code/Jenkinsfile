@@ -1,0 +1,62 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'MyMaven'
+    }
+
+    environment {
+        APP_VERSION = '1.0.0'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Build') {
+            steps {
+                bat 'mvn clean compile'
+            }
+            post {
+                success {
+                    echo 'Build successful!'
+                }
+            }
+        }
+
+        stage('Test') {
+            steps {
+                bat 'mvn test'
+            }
+            post {
+                always {
+                    junit '**/target/surefire-reports/*.xml'
+                }
+            }
+        }
+
+        stage('Package') {
+            steps {
+                bat 'mvn package -DskipTests'
+            }
+        }
+
+        stage('Archive') {
+            steps {
+                archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+            }
+        }
+    }
+
+    post {
+        failure {
+            echo 'Pipeline failed! Check logs.'
+        }
+        success {
+            echo 'Pipeline completed!'
+        }
+    }
+}
