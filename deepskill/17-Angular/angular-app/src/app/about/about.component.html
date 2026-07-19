@@ -1,0 +1,16 @@
+<h2>About This Project</h2>
+<p><strong>Name:</strong> {{ name }}</p>
+<p><strong>Version:</strong> {{ version }}</p>
+<p><strong>Author:</strong> {{ author }}</p>
+
+<h3>Topics Learned</h3>
+<table border="1" cellpadding="5">
+  <tr>
+    <th>Topic</th>
+    <th>Description</th>
+  </tr>
+  <tr *ngFor="let topic of topics">
+    <td>{{ topic.name }}</td>
+    <td>{{ topic.desc }}</td>
+  </tr>
+</table>

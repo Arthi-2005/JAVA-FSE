@@ -1,0 +1,31 @@
+<h2>Angular Basics - Learning Demo</h2>
+
+<h3>1. Interpolation</h3>
+<p>{{ title }}</p>
+<p>Today: {{ today | date:'fullDate' }}</p>
+
+<h3>2. Property Binding</h3>
+<input [value]="userName" [disabled]="isDisabled" [placeholder]="myPlaceholder">
+<button [disabled]="isDisabled">Disabled</button>
+
+<h3>3. Event Binding</h3>
+<button (click)="sayHello()">Click Me!</button>
+<p>{{ message }}</p>
+
+<h3>4. Two-way Binding</h3>
+<input [(ngModel)]="userName">
+<p>Hello, <strong>{{ userName | capitalize }}</strong>!</p>
+
+<h3>5. *ngIf</h3>
+<button (click)="toggleDetails()">{{ showDetails ? 'Hide' : 'Show' }} Details</button>
+<div *ngIf="showDetails" class="details-box">
+  <p>These are hidden details! I am visible now.</p>
+  <p>Angular uses *ngIf to show/hide elements.</p>
+</div>
+
+<h3>6. *ngFor</h3>
+<ul>
+  <li *ngFor="let skill of skills" [appHighlight]="'#e8f5e9'">{{ skill | capitalize }}</li>
+</ul>
+
+<button (click)="reset()">Reset</button>

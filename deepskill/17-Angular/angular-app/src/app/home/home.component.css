@@ -1,0 +1,5 @@
+h2 { color: #1976d2; }
+h3 { color: #333; border-bottom: 1px solid #ccc; padding-bottom: 5px; }
+.details-box { border: 1px solid #ccc; padding: 10px; margin: 10px 0; background: #f9f9f9; }
+button { margin: 5px; padding: 5px 10px; }
+input { margin: 5px; padding: 5px; }
