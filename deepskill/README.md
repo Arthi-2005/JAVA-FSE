@@ -4,9 +4,7 @@ Hands-on practice modules covering core Java Full Stack engineering concepts.
 
 ## Progress Summary
 
-- ✅ **Completed:** Modules 1–15
-- 🚧 **In Progress:** Module 16 — GenAI
-- ⏳ **Not Started:** Module 17 (Angular)
+- ✅ **Completed:** Modules 1–17
 
 ## Module List
 
@@ -28,8 +26,8 @@ Hands-on practice modules covering core Java Full Stack engineering concepts.
 | 13 | Docker | Concept | Images, Containers, Dockerfile, Docker Compose, Volume mounts, Networking | ✅ Completed |
 | 14 | Agile | Concept | Scrum, Sprints, Stand-ups, Retrospectives, User stories, Estimation | ✅ Completed |
 | 15 | Cloud | Concept | AWS/Azure basics, IaaS/PaaS/SaaS, Deployment, Scaling, Storage | ✅ Completed |
-| 16 | GenAI | Concept | Prompt engineering, LLMs, RAG, Fine-tuning, AI integration patterns | 🚧 In Progress |
-| 17 | Angular | Workshop | Components, Modules, Routing, Services, Pipes, Directives, CLI | ⏳ Not Started |
+| 16 | GenAI | Concept | Prompt engineering, LLMs, RAG, Fine-tuning, AI integration patterns | ✅ Completed |
+| 17 | Angular | Workshop | Components, Modules, Routing, Services, Pipes, Directives, CLI | ✅ Completed |
 
 ## Legend
 
