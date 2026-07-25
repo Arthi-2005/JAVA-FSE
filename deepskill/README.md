@@ -4,7 +4,9 @@ Hands-on practice modules covering core Java Full Stack engineering concepts.
 
 ## Progress Summary
 
-- ✅ **Completed:** Modules 1–17 (all exercises, code, and hands-on complete)
+- ✅ **Completed:** Modules 1–13
+- 🚧 **In Progress:** Module 14 — Agile
+- ⏳ **Not Started:** Modules 15–17 (Cloud, GenAI, Angular)
 
 ## Module List
 
@@ -24,10 +26,10 @@ Hands-on practice modules covering core Java Full Stack engineering concepts.
 | 11 | Git | Hands-on | Init, Clone, Commit, Branch, Merge, Rebase, Conflict resolution, .gitignore | ✅ Completed |
 | 12 | DevOps & CI/CD | Concept | CI/CD pipelines, Build automation, Jenkins/GitHub Actions, Deployment strategies | ✅ Completed |
 | 13 | Docker | Concept | Images, Containers, Dockerfile, Docker Compose, Volume mounts, Networking | ✅ Completed |
-| 14 | Agile | Concept | Scrum, Sprints, Stand-ups, Retrospectives, User stories, Estimation | ✅ Completed |
-| 15 | Cloud | Concept | AWS/Azure basics, IaaS/PaaS/SaaS, Deployment, Scaling, Storage | ✅ Completed |
-| 16 | GenAI | Concept | Prompt engineering, LLMs, RAG, Fine-tuning, AI integration patterns | ✅ Completed |
-| 17 | Angular | Workshop | Components, Modules, Routing, Services, Pipes, Directives, CLI | ✅ Completed |
+| 14 | Agile | Concept | Scrum, Sprints, Stand-ups, Retrospectives, User stories, Estimation | 🚧 In Progress |
+| 15 | Cloud | Concept | AWS/Azure basics, IaaS/PaaS/SaaS, Deployment, Scaling, Storage | ⏳ Not Started |
+| 16 | GenAI | Concept | Prompt engineering, LLMs, RAG, Fine-tuning, AI integration patterns | ⏳ Not Started |
+| 17 | Angular | Workshop | Components, Modules, Routing, Services, Pipes, Directives, CLI | ⏳ Not Started |
 
 ## Legend
 
